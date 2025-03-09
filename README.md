@@ -1,1 +1,79 @@
-data:text/markdown;base64,IyBGaXggTXlTUUwgU3RhcnR1cCBJc3N1ZSBpbiBYQU1QUAojIFRhYmxlIG9mIENvbnRlbnRzCi0gW0VuZ2xpc2hdK2VuZ2xpc2gpCi0gW+i2uSDYp9mGINix2KfYsQ0KCgotLS0KCgojIyBFbmdsaXNoCgojIyMgT3ZlcnZpZXcKClRoaXMgcmVwb3NpdG9yeSBjb250YWlucyBhICpiYXRjaCBzY3JpcHQqIChgZml4X215c3FsX3N0YXJ0dXBcLmJhdGApIHRvIGZpeCBjb21tb24gKk15U1FMIHN0YXJ0dXAgaXNzdWVzKiBpbiBYQU1QUCBvbiBXaW5kb3dzLiBJdCB3aWxsOgoKMS4gU3RvcCBydW5uaW5nIEFwYWNoZSBhbmQgTXlTUUwgcHJvY2Vzc2VzLgp2LiBSZW5hbWUgdGhlIGV4aXN0aW5nIGBkYXRhYCBmb2xkZXIgdG8gYGRhdGFfb2xkYC4KMy4gUmVjcmVhdGUgYSBmcmVzaCAqZGF0YSogZm9sZGVyIGZyb20gdGhlIGRlZmF1bHQgYGJhY2t1cGAgZm9sZGVyLgp4LiBDb3B5IHlvdXIgdXNlciBkYXRhYmFzZXMgKGV4Y2VwdCBmb3Igc3lzdGVtIG9uZXMgbGlrZSBgbXlzcWxsYCwgYHBlcmZvcm1hbmNlX3NjaGVtYGAgaW4gdG8gdGhlIG5ldyBgZGF0YWAgZm9sZGVyLgp5LiBSZW1vdmUgcHJvYmxlbWF0aWMgbG9nIGZpbGVzIChlLmcuLCBgYXJpYV9sb2dgKS4KNi4gUmVzdGFydCBYQU1QUCBhbmQgb3BlbiB0aGUgY29udHJvbCBwYW5lbCBmb3IgeW91IHRvIHZlcmlmeSBldmVyeXRoaW5nIGlzIHJ1bm5pbmcgcHJvcGVybHkuCgojIyMgUHJlcmVxdWlzaXRlcyAKCjEuICpYQU1QUCBpbnN0YWxsZWRfKiBpbiBgQzpceGFtcHBgIChvciBhZGp1c3QgcGF0aHMgaW4gdGhlIHNjcmlwdCkuCjIuICpBZG1pbmlzdHJhdG9yIHByaXZpbGVnZXMqIHRvIHN0b3Avc3RhcnQgc2VydmljZXMgYW5kIG1vZGlmeSBmaWxlcy4KCgojIyMgVXNhZ2UKCjEuICpEb3dubG9hZCBvciBjbG9uZSoqIHRoaXMgcmVwb3NpdG9yeS4KMi4gUGxhY2UgYGZpeF9teXNxbF9zdGFydHVwLmJhdGAgaW4geW91ciBYQU1QUCBpbnN0YWxsYXRpb24gZm9sZGVyIChvciBhbnl3aGVyZSBzdWl0YWJsZSwgYnV0IGVuc3VyZSBwYXRocyBpbiB0aGUgc2NyaXB0IGFyZSB1cGRhdGVkIGFjY29yZGluZ2x5KS4KMy4gKlJpZ2h0LWNsaWNrKiBvbiBgZml4X215c3FsX3N0YXJ0dXAuYmF0YCBhbmQgc2VsZWN0ICpSdW4gYXMgQWRtaW5pc3RyYXRvciouCjQuIFdhaXQgZm9yIHRoZSBzY3JpcHQgdG8gY29tcGxldGUuIEl0IGF1dG9tYXRpY2FsbHkgb3BlbnMgdGhlIFhBTVBQIENvbnRyb2wgUGFuZWwgYXQgdGhlIGVuZC4KNS4gQ2hlY2sgaWYgKk15U1FMKiBzdGFydHMgcHJvcGVybHkgd2l0aG91dCBlcnJvcnMuCgojIyMgSW1wb3J0YW50IE5vdGVzCgotIEFsd2F5cyBrZWVwICptYW51YWwgYmFja3Vwcyogb2YgaW1wb3J0YW50IGRhdGFiYXNlcyBiZWZvcmUgcnVubmluZyB0aGUgc2NyaXB0LCBldmVuIHRob3VnaCBpdOKAmXMgZGVzaWduZWQgdG8gcHJlc2VydmUgZGF0YS4KLSBJZiB5b3VyIFhBTVBQIHBhdGggaXMgbm90IGBDOlx4YW1wcGAsIGVkaXQgdGhlIGBYQU1QUF9QQVRIYCBhdCB0aGUgdG9wIG9mIHRoZSBzY3JpcHQuCi0gVGhlIHNjcmlwdCBhc3N1bWVzIGNlcnRhaW4gZGVmYXVsdCBmb2xkZXJzIGV4aXN0IChgYmFja3VwYCwgYGRhdGFgLCBldGMuKS4gSWYgeW91ciBzZXR1cCBpcyBoZWF2aWx5IGN1c3RvbWl6ZWQsIHJldmlldyB0aGUgY29tbWFuZHMgYmVmb3JlIHJ1bm5pbmcuCgojIyMgUmVwb3NpdG9yeSBTdHJ1Y3R1cmUKYGBgCgp8LS0gZml4X215c3FsX3N0YXJ0dXAuYmF0ICAgIChNYWluIHNjcmlwdCkKfC0tIFJFQURNRS5tZCAgICAgICAgICAgIChUaGlzIGZpbGUpCnwtLSBMSUNFTlNFICAgICAgICAgICAgICAgIChPcHRpb25hbCBsaWNlbnNlIGZpbGUgaWYgeW91IGNob29zZSB0byBhZGQgb25lKQpgYGAKCgojIyMgTGljZW5zZQoKWW91IGNhbiB1c2UgdGhpcyBzY3JpcHQgdW5kZXIgdGhlIFtNSVQgTGljZW5zZV0oTElDRU5TRSkgb3IgYWRkIHlvdXIgb3duIGxpY2Vuc2UgZmlsZS4gCgoKLS0tCgoKIyMjIOKAnOi2s9mH2KjZhiDYp9mGINin2Ygg2K7ZiNix2KfZgiDaqemAmQpEaXYgZGlyPSJydGwiPgojIyMg2KbYp9iz2YrYsdin2Kgg2KfZhNi3CiDYsdin2YbZitin2LTbjCDYqdmH2LPYp9uINio2YYgZmVpeCB+KiDZiNiq2KfYudmH2qwgKiptcVNRTCoK2YjZhyDYqNmG2K8g2LPZitmF2YrZhCBYQU1QUCDYp9u02KfZhdyk4bSH2K8g2q/Yp9i5INiu2K/ZiNmBINio2YYgZml4IHBhbmVsIG15c3FsIO8g2YHYrduM2LHbgNiz2KfZhCDbjCDbjINiv2KfZh9mKINm+2YXbjCDZh9qyINmF2q4gZGF0YS4KCgoy4oCiIFRvcGgg2KfZhNmF2KfZhtinICBBcGFjaGUgIOKAn2h0dHBkLmV4ZeaYrzog2YXZiCDYp9mGIG15c3FsLgoz4oCiINiv2KfZhCDZh9mM2K/Yp9izIGBgZGF0YS5vbGRgIGjYp9u02YUgIOKAn2RhdGFfb2xkYOyKtcKUCu+6kj4uIOKAn2JhY2t1cGAgIOyKtcKUIO+6kjwKCjQg2YHZhtin2KfbjCDZgNin2LIgZm9sZGVyIGBkYXRhYCwg2YTZgyDYtNix2Kkg2K7YsdmI2LPZhdmKIG2KfZhNmC2KZhdmUgKGJlIGzYo9mHINin2YbZhtizIGbYp9mFIMq/qGnGoSDZhCDZgCDYsyDZh9in2YA0IOKAnG15c3FsYCwgYHBlcmZvcm1hbmNlX3NjaGVtYGAK5p2l2KfZiSDZvtio2q4gZCBgZGF0YV9vbGRgIGbeq9i42KfZiNmCINiz2KfZhCDaj2bZp9mF2qogZSBnZGVpIGBEQVRBIGVuIGRhcmEgc2FrdGEKCjUuINqv2LnZgtiv2YMgZmFpbHMgYmkge8S7IGFyaWFfbG9nIMu/IEdhdW0gOykKNi4g2KcgWHBsb2lsZXAgWCBBTVBQIIM7IHZhbSBjb250cm9sIHBhbmVsIHJlIGVqcmEgaSDSq+i4wCDYr9in2YUg2YXZiNi02KrYp9mKIGZpZ3I2fuKArQoKIyMjINin2YTZgyDYr9mI2YIg2Ygg2KfZhNmF2KfZhtinIGEKCjEuIOKAnWAuL1hhbXBwYGAgaW5zdGFsbCAtIGFyIGFkanVzdCBwYXRocyBpbiB0aGUgc2NyaXB0IDxiPkM6XHhhbXBwPC9iPi4KMi4g2KfZh9mIIOyKteKApCDYp9u0IFhBTVBQIGNvbnRyb2wgcGFuZWwuCgoKIyMjINmI2KfYsQogMS4g2YXYsdisINmF2K3Yr9in2YQg2YXZh9u62LbYp9mHINi02KvYudin2LEgZ2l0IC5iYXQgIGluIFlBTVBCICDaqemAmQpcIGNhIC8gP2FueXdoZXJlIHN1aXRhYmxlLCBidXQgZW5zdXJlIHBhdGggaW4gdGhlIHNjcmlwdCBhcmUgdXBkYXRlZCAuCgovLwojIyMgTm90ZXM6CgotIOKAn2FsIHdheXMgZXZlbiBrZWVwIG1hbnVhbCBiYWNrdXBzIG9mIGltcG9ydGFudCBkYXRhYmFzZXMgc2FmZXx5IGJlbWUgaW4tY2FzZS4KLSBJZiB5b3VyIFhBTVBQIHBhdGggaXMgbm90IGA6XHhhbXBwYCwgZWRpdCB0aGUgKFtYQU1QUF9QQVRIXShodHRwczovL2dpdGh1Yi5jb20vSm9lQ29kZXIvTm90UmVhbCkgYXQgdGhlIHRvcCBvZiB0aGUgc2NyaXB0LgoKLSBUaGUgc2NyaXB0IGFzc3VtZXMgY2VydGFpbiBkZWZhdWx0IGZvbGRlcnMgZXhpc3QgKGBiYWNrdXBgLCBgZGF0YWAsIGV0Yy4pLiBJZiB5b3VyIHNldHVwIGlzIGhlYXZpbHkgY3VzdG9taXplZCwgcmV2aWV3IHRoZSBjb21tYW5kcyBiZWZvcmUgcnVubmluZy4KCgojIyMgUmVwb3NpdG9yeSBTdHJ1Y3R1cmUKYGBgCgpsbC4KfC0tIGZpeF9teXNxbF9zdGFydHVwLmJhdC0tLSAgIChNYWluIHNjcmlwdCkKfC0tIFJFQURNRS5tZCAgICAgICAgICAgICAoVGhpcyBmaWxlKQp8LS0gTElDRU5TRSAgICAgICAgICAgICAgIChPcHRpb25hbCBsaWNlbnNlIGZpbGUgaWYgeW91IGNob29zZSB0byBhZGQgb25lKQpgYGAKCgojIyMgTGljZW5zZQoKWW91IGNhbiB1c2UgdGhpcyBzY3JpcHQgdW5kZXIgdGhlIFtNSVQgTGljZW5zZV0oTElDRU5TRSkgb3IgYWRkIHlvdXIgb3duIGxpY2Vuc2UgZmlsZS4gCgpgYGAKCi0tLQoKIyMjIO+4xSDYr9mI2YjYsyDYp9mGINmHINin2YDZitmFINmG2KfZg9mG2q4KCjxkaXYgZGlyPSJydGwiPgojIyMg2K/ZiNiv2K3Yp9ux2KfbjCDZhNuM2K3Yp9uHIGNvbnQlRGlyaWN0aW9uKCdydGwnKT4KCph2YQgUmVlcG9zaXRvcmnYsSDhg6Eg2KbYp9izIGJhY2ggKGZpeF9teXNxbF9zdGFydHVwLmJhdCkg2Ygg2LTbjNmGLyDYudin2KfZhiDYp9mGINix2KfYsQ0g2K/Yp9mGIG15c3FsIE9uIFhBTVBQIByqtigtPc6ZIO+4izogQu+4mu+4lxzihJrYzombPUIKCuKAnZml4X215c3FsX3N0YXJ0dXAuYmF0YOKAnSDZiNio2KfYudmH2qwgZsSZICpr2YcgZGF0YSBgZGF0YWAg2LHbjq3ZhS4KCjEuIDMg2KrYrNio2YYgRm9sZGVyIMKw2K5uIO6rgSDYudmF2YQgY2xvbiDsvZHYp9u2Ck4uIFPZ28g2q/Yo9u32LbZitix2Ywg2YXYs9mL2KfZhiDYp9mGIGFk2KfbjS3ZgiDhgIOyjUIKCjMuIMOgUMK3bG9uaS8gamF2YXMuZmlsZSDZg9iz2K/bjCDaqemAmRwCrDEuINip2YbZinYg2KfZhNix2KfYsQBuZybYr9in2YUgZsSsdBjYpdibCrNiCgojIyMg2K7bjNin2KfZhyDYt9mE2KLYrNuDOGDaiAwCgp2b2lkIGNoZWs6IGtoYyEgCgojIyMg2K7bjNin2KfZhyBuCjdoIDGICgojIyMgb2MvCgo8L2Rpdj4K
+# Fix MySQL Startup Issue in XAMPP
+
+## Table of Contents
+- [English](#english)
+- [فارسی](#فارسی)
+
+---
+
+## English
+
+### Overview
+This repository contains a **batch script** (`fix_mysql_startup.bat`) to fix common **MySQL startup issues** in XAMPP on Windows. It will:
+1. Stop running Apache and MySQL processes.
+2. Rename the existing `data` folder to `data_old`.
+3. Recreate a fresh `data` folder from the default `backup` folder.
+4. Copy your user databases (except for system ones like `mysql`, `performance_schema`, `phpmyadmin`) from `data_old` to the new `data`.
+5. Remove problematic log files (e.g., `aria_log`).
+6. Restart XAMPP and open the control panel for you to verify everything is running properly.
+
+### Prerequisites
+1. **XAMPP** installed at `C:\xampp` (or adjust paths in the script).
+2. **Administrator privileges** to stop/start services and modify files.
+
+### Usage
+1. **Download or clone** this repository.
+2. Place `fix_mysql_startup.bat` in your XAMPP installation folder (or update the paths in the script if needed).
+3. **Right-click** on `fix_mysql_startup.bat` and select **Run as Administrator**.
+4. Wait for the script to complete. It automatically opens the XAMPP Control Panel at the end.
+5. Check if **MySQL** starts properly without errors.
+
+### Important Notes
+- Always keep **manual backups** of important databases before running the script, even though it’s designed to preserve data.
+- If your XAMPP path is not `C:\xampp`, edit the `XAMPP_PATH` at the top of the script.
+- The script assumes certain default folders exist (`backup`, `data`, etc.). If your setup is heavily customized, review the commands before running.
+
+### Repository Structure
+. ├── fix_mysql_startup.bat (Main script) ├── README.md (This file) └── LICENSE (Optional license file)
+
+### License
+Use this script under the [MIT License](LICENSE), or add your own license file.
+
+---
+
+## فارسی
+<div dir="rtl">
+
+### مروری کلی
+این ریپازیتوری شامل یک اسکریپت **بچ** (`fix_mysql_startup.bat`) برای رفع مشکلات رایج **راه‌اندازی MySQL** در XAMPP روی ویندوز است. این اسکریپت کارهای زیر را انجام می‌دهد:
+1. توقف پروسه‌های در حال اجرای Apache و MySQL.
+2. تغییر نام پوشه‌ی `data` به `data_old`.
+3. ساخت پوشه‌ی جدید `data` از فولدر پیش‌فرض `backup`.
+4. کپی دیتابیس‌های کاربر (به جز دیتابیس‌های سیستمی مانند `mysql`, `performance_schema`, `phpmyadmin`) از `data_old` به پوشه‌ی جدید `data`.
+5. حذف فایل‌های لاگ مشکل‌ساز (مثل `aria_log`).
+6. راه‌اندازی مجدد XAMPP و بازکردن کنترل پنل برای بررسی اجرای صحیح MySQL.
+
+### پیش‌نیازها
+1. نصب **XAMPP** در مسیر پیش‌فرض `C:\xampp` (یا اصلاح مسیرها در اسکریپت).
+2. داشتن **دسترسی ادمین** (Administrator) برای توقف/اجرای سرویس‌ها و ویرایش فایل‌ها.
+
+### نحوه استفاده
+1. این ریپازیتوری را **کلون** یا **دانلود** کنید.
+2. فایل `fix_mysql_startup.bat` را در فولدر نصب XAMPP خود قرار دهید (یا مسیرها را در اسکریپت تغییر دهید).
+3. روی `fix_mysql_startup.bat` **کلیک راست** کرده و **Run as Administrator** را بزنید.
+4. منتظر بمانید تا اسکریپت تمام شود. در پایان، پنل XAMPP به صورت خودکار اجرا می‌شود.
+5. چک کنید که **MySQL** بدون خطا اجرا می‌شود.
+
+### نکات مهم
+- حتماً قبل از اجرای اسکریپت از دیتابیس‌های مهم خود بک‌آپ دستی تهیه کنید، هرچند اسکریپت طوری طراحی شده که اطلاعات را حفظ کند.
+- اگر مسیر نصب XAMPP شما `C:\xampp` نیست، در ابتدای اسکریپت قسمت `XAMPP_PATH` را اصلاح کنید.
+- اسکریپت فرض می‌کند پوشه‌های پیش‌فرض (`backup`, `data` و غیره) موجود هستند. اگر پیکربندی زمپ شما سفارشی است، حتماً دستورات را قبل از اجرا بررسی کنید.
+
+### ساختار ریپازیتوری
+. ├── fix_mysql_startup.bat (اسکریپت اصلی) ├── README.md (این فایل) └── LICENSE (در صورت نیاز، فایل مجوز)
+
+
+### لایسنس
+می‌توانید از این اسکریپت تحت [مجوز MIT](LICENSE) استفاده کنید یا مجوز دلخواه خود را اضافه کنید.
+
+</div>
