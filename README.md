@@ -37,7 +37,7 @@ This repository contains a **batch script** (`fix_mysql_startup.bat`) to fix com
 . ├── fix_mysql_startup.bat (Main script) ├── README.md (This file) └── LICENSE (Optional license file)
 
 ### License
-Use this script under the [MIT License](LICENSE), or add your own license file.
+Use this script under the [MIT License](LICENSE)
 
 ---
 
@@ -74,6 +74,6 @@ Use this script under the [MIT License](LICENSE), or add your own license file.
 
 
 ### لایسنس
-می‌توانید از این اسکریپت تحت [مجوز MIT](LICENSE) استفاده کنید یا مجوز دلخواه خود را اضافه کنید.
+می‌توانید از این اسکریپت تحت [مجوز MIT](LICENSE) استفاده کنید
 
 </div>
