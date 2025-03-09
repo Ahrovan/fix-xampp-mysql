@@ -1,0 +1,114 @@
+@echo off
+title Fix MySQL Startup Issue in XAMPP
+color 0A
+echo ==================================================
+echo   XAMPP MySQL Auto Fix Script
+echo ==================================================
+echo.
+
+:: XAMPP installation path
+set XAMPP_PATH=C:\xampp
+set MYSQL_PATH=%XAMPP_PATH%\mysql
+set DATA_PATH=%MYSQL_PATH%\data
+set BACKUP_PATH=%MYSQL_PATH%\backup
+set OLD_DATA_PATH=%MYSQL_PATH%\data_old
+
+echo [INFO] Stopping Apache and MySQL services...
+
+:: Check and stop Apache
+tasklist | findstr /I "httpd.exe" >nul
+if %errorlevel%==0 (
+    echo [WARN] Apache is running! Stopping...
+    taskkill /F /IM httpd.exe /T >nul
+    echo [SUCCESS] Apache stopped successfully.
+) else (
+    echo [INFO] Apache is not running.
+)
+
+:: Check and stop MySQL
+tasklist | findstr /I "mysqld.exe" >nul
+if %errorlevel%==0 (
+    echo [WARN] MySQL is running! Stopping...
+    taskkill /F /IM mysqld.exe /T >nul
+    echo [SUCCESS] MySQL stopped successfully.
+) else (
+    echo [INFO] MySQL is not running.
+)
+
+:: Close XAMPP Control Panel if open
+tasklist | findstr /I "xampp-control.exe" >nul
+if %errorlevel%==0 (
+    echo [INFO] Closing XAMPP Control Panel...
+    taskkill /F /IM xampp-control.exe >nul
+)
+
+:: Ensure services are fully stopped
+echo [INFO] Waiting for processes to fully terminate...
+ping -n 3 127.0.0.1 >nul
+
+:: Rename 'data' to 'data_old'
+if exist "%DATA_PATH%" (
+    echo [INFO] Renaming 'data' to 'data_old'...
+    ren "%DATA_PATH%" "data_old"
+)
+
+:: Create new 'data' folder
+if not exist "%DATA_PATH%" (
+    echo [INFO] Creating new 'data' folder...
+    mkdir "%DATA_PATH%"
+)
+
+:: Copy backup files to 'data'
+echo [INFO] Copying backup files to new 'data' folder...
+xcopy "%BACKUP_PATH%\*" "%DATA_PATH%\" /E /H /C /I /Y >nul
+echo [SUCCESS] Backup files copied successfully!
+
+:: Copy databases from 'data_old' to 'data' (except mysql, performance_schema, phpmyadmin)
+echo [INFO] Copying necessary databases from 'data_old' to 'data'...
+for /D %%i in ("%OLD_DATA_PATH%\*") do (
+    if /I NOT "%%~nxi"=="mysql" if /I NOT "%%~nxi"=="performance_schema" if /I NOT "%%~nxi"=="phpmyadmin" (
+        xcopy "%%i" "%DATA_PATH%\%%~nxi\" /E /H /C /I /Y >nul
+        echo [SUCCESS] Copied: %%~nxi
+    )
+)
+
+:: Copy and replace 'ibdata1'
+echo [INFO] Copying 'ibdata1' file from 'data_old' to 'data'...
+if exist "%OLD_DATA_PATH%\ibdata1" (
+    copy "%OLD_DATA_PATH%\ibdata1" "%DATA_PATH%\" /Y >nul
+    echo [SUCCESS] 'ibdata1' copied and replaced successfully!
+) else (
+    echo [WARN] 'ibdata1' file not found in 'data_old'.
+)
+
+:: Delete aria_log files
+echo [INFO] Checking for 'aria_log' files...
+if exist "%DATA_PATH%\aria_log.00000001" (
+    del "%DATA_PATH%\aria_log.00000001" /F /Q
+    echo [SUCCESS] 'aria_log.00000001' deleted successfully.
+) else (
+    echo [INFO] 'aria_log.00000001' file not found. Skipping...
+)
+
+if exist "%DATA_PATH%\aria_log.00000002" (
+    del "%DATA_PATH%\aria_log.00000002" /F /Q
+    echo [SUCCESS] 'aria_log.00000002' deleted successfully.
+) else (
+    echo [INFO] 'aria_log.00000002' file not found. Skipping...
+)
+
+:: Restart XAMPP and start services
+echo.
+echo [INFO] Restarting XAMPP...
+start "" "%XAMPP_PATH%\xampp-control.exe"
+
+echo [INFO] Starting MySQL and Apache...
+cd /d "%XAMPP_PATH%"
+xampp_start.exe
+
+echo.
+echo ==================================================
+echo   Process completed successfully!
+echo   Please check XAMPP and start MySQL.
+echo ==================================================
+pause
