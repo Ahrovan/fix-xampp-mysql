@@ -1,114 +1,119 @@
 @echo off
-title Fix MySQL Startup Issue in XAMPP
+:: ========================================================
+::  XAMPP MySQL Auto Repair Script (Final + Credentials Print)
+:: ========================================================
+
+chcp 65001 >nul
+title XAMPP MySQL Auto Repair Script
 color 0A
+setlocal EnableDelayedExpansion
+
 echo ==================================================
-echo   XAMPP MySQL Auto Fix Script
+echo            XAMPP MySQL Repair Utility
 echo ==================================================
 echo.
 
-:: XAMPP installation path
-set XAMPP_PATH=C:\xampp
-set MYSQL_PATH=%XAMPP_PATH%\mysql
-set DATA_PATH=%MYSQL_PATH%\data
-set BACKUP_PATH=%MYSQL_PATH%\backup
-set OLD_DATA_PATH=%MYSQL_PATH%\data_old
+:: === CONFIGURATION ===
+set "XAMPP_PATH=C:\xampp"
+set "MYSQL_PATH=%XAMPP_PATH%\mysql"
+set "DATA_PATH=%MYSQL_PATH%\data"
+set "BACKUP_PATH=%MYSQL_PATH%\backup"
+set "OLD_DATA_PATH=%MYSQL_PATH%\data_old"
 
-echo [INFO] Stopping Apache and MySQL services...
+:: === MYSQL CREDENTIALS ===
+:: Change below if your XAMPP MySQL creds differ
+set "MYSQL_USER=ahrovan"
+set "MYSQL_PASS=ahrovan"
 
-:: Check and stop Apache
-tasklist | findstr /I "httpd.exe" >nul
-if %errorlevel%==0 (
-    echo [WARN] Apache is running! Stopping...
-    taskkill /F /IM httpd.exe /T >nul
-    echo [SUCCESS] Apache stopped successfully.
-) else (
-    echo [INFO] Apache is not running.
+:: === STEP 1: Stop MySQL & Apache ===
+echo [STEP 1] Stopping MySQL and Apache...
+
+:: Stop MySQL safely
+net stop mysql >nul 2>&1
+
+:: Kill remaining MySQL/Apache/XAMPP processes
+for %%P in (mysqld.exe httpd.exe xampp-control.exe) do (
+    tasklist | findstr /I "%%P" >nul
+    if !errorlevel! == 0 (
+        echo [INFO] Terminating process: %%P ...
+        taskkill /F /IM %%P /T >nul 2>&1
+    )
 )
+echo [INFO] Waiting for process shutdown...
+timeout /T 3 /NOBREAK >nul
 
-:: Check and stop MySQL
-tasklist | findstr /I "mysqld.exe" >nul
-if %errorlevel%==0 (
-    echo [WARN] MySQL is running! Stopping...
-    taskkill /F /IM mysqld.exe /T >nul
-    echo [SUCCESS] MySQL stopped successfully.
-) else (
-    echo [INFO] MySQL is not running.
+:: === STEP 2: Backup Existing Data ===
+if exist "%OLD_DATA_PATH%" (
+    set "STAMP=%date:~10,4%-%date:~4,2%-%date:~7,2%_%time:~0,2%%time:~3,2%"
+    set "STAMP=!STAMP: =0!"
+    echo [WARN] Previous 'data_old' found. Renaming to data_old_!STAMP! ...
+    ren "%OLD_DATA_PATH%" "data_old_!STAMP!" >nul 2>&1
 )
-
-:: Close XAMPP Control Panel if open
-tasklist | findstr /I "xampp-control.exe" >nul
-if %errorlevel%==0 (
-    echo [INFO] Closing XAMPP Control Panel...
-    taskkill /F /IM xampp-control.exe >nul
-)
-
-:: Ensure services are fully stopped
-echo [INFO] Waiting for processes to fully terminate...
-ping -n 3 127.0.0.1 >nul
-
-:: Rename 'data' to 'data_old'
 if exist "%DATA_PATH%" (
-    echo [INFO] Renaming 'data' to 'data_old'...
-    ren "%DATA_PATH%" "data_old"
+    echo [INFO] Renaming current 'data' to 'data_old' ...
+    ren "%DATA_PATH%" "data_old" >nul 2>&1
 )
 
-:: Create new 'data' folder
-if not exist "%DATA_PATH%" (
-    echo [INFO] Creating new 'data' folder...
-    mkdir "%DATA_PATH%"
+:: === STEP 3: Create Clean Data Folder ===
+echo [STEP 3] Creating new MySQL data folder...
+mkdir "%DATA_PATH%" >nul 2>&1
+if errorlevel 1 (
+    echo [ERROR] Unable to create data folder. Check permissions!
+    exit /b 1
 )
 
-:: Copy backup files to 'data'
-echo [INFO] Copying backup files to new 'data' folder...
+:: === STEP 4: Restore System Schemas ===
+if not exist "%BACKUP_PATH%\mysql" (
+    echo [ERROR] System backup schemas missing. Reinstall XAMPP required!
+    exit /b 2
+)
+echo [INFO] Copying MySQL default schemas...
 xcopy "%BACKUP_PATH%\*" "%DATA_PATH%\" /E /H /C /I /Y >nul
-echo [SUCCESS] Backup files copied successfully!
+if errorlevel 1 (
+    echo [ERROR] Backup copy failed.
+    exit /b 3
+)
+echo [OK] MySQL system schemas restored.
 
-:: Copy databases from 'data_old' to 'data' (except mysql, performance_schema, phpmyadmin)
-echo [INFO] Copying necessary databases from 'data_old' to 'data'...
-for /D %%i in ("%OLD_DATA_PATH%\*") do (
-    if /I NOT "%%~nxi"=="mysql" if /I NOT "%%~nxi"=="performance_schema" if /I NOT "%%~nxi"=="phpmyadmin" (
-        xcopy "%%i" "%DATA_PATH%\%%~nxi\" /E /H /C /I /Y >nul
-        echo [SUCCESS] Copied: %%~nxi
+:: === STEP 5: Restore User Databases ===
+echo [STEP 5] Copying user-created databases...
+for /D %%D in ("%MYSQL_PATH%\data_old\*") do (
+    set "DBNAME=%%~nD"
+    if /I NOT "!DBNAME!"=="mysql" if /I NOT "!DBNAME!"=="performance_schema" if /I NOT "!DBNAME!"=="phpmyadmin" (
+        xcopy "%%D" "%DATA_PATH%\!DBNAME!\" /E /H /C /I /Y >nul
+        echo [OK] Copied user DB: !DBNAME!
     )
 )
 
-:: Copy and replace 'ibdata1'
-echo [INFO] Copying 'ibdata1' file from 'data_old' to 'data'...
-if exist "%OLD_DATA_PATH%\ibdata1" (
-    copy "%OLD_DATA_PATH%\ibdata1" "%DATA_PATH%\" /Y >nul
-    echo [SUCCESS] 'ibdata1' copied and replaced successfully!
+:: === STEP 6: Restore ibdata1 & Clean Logs ===
+echo [STEP 6] Restoring ibdata1 and cleaning corrupted logs...
+if exist "%MYSQL_PATH%\data_old\ibdata1" (
+    copy "%MYSQL_PATH%\data_old\ibdata1" "%DATA_PATH%\" /Y >nul
+    echo [OK] ibdata1 restored successfully.
 ) else (
-    echo [WARN] 'ibdata1' file not found in 'data_old'.
+    echo [WARN] ibdata1 missing — will be rebuilt automatically.
 )
-
-:: Delete aria_log files
-echo [INFO] Checking for 'aria_log' files...
-if exist "%DATA_PATH%\aria_log.00000001" (
-    del "%DATA_PATH%\aria_log.00000001" /F /Q
-    echo [SUCCESS] 'aria_log.00000001' deleted successfully.
-) else (
-    echo [INFO] 'aria_log.00000001' file not found. Skipping...
+for %%F in (ib_logfile0 ib_logfile1 ibtmp1 aria_log.00000001 aria_log.00000002 aria_log aria_log_control) do (
+    if exist "%DATA_PATH%\%%F" del "%DATA_PATH%\%%F" /F /Q >nul
 )
+echo [OK] Log cleanup completed.
 
-if exist "%DATA_PATH%\aria_log.00000002" (
-    del "%DATA_PATH%\aria_log.00000002" /F /Q
-    echo [SUCCESS] 'aria_log.00000002' deleted successfully.
-) else (
-    echo [INFO] 'aria_log.00000002' file not found. Skipping...
-)
-
-:: Restart XAMPP and start services
+:: === STEP 7: Relaunch XAMPP Control Panel ===
 echo.
-echo [INFO] Restarting XAMPP...
-start "" "%XAMPP_PATH%\xampp-control.exe"
-
-echo [INFO] Starting MySQL and Apache...
-cd /d "%XAMPP_PATH%"
-xampp_start.exe
+echo [INFO] Launching XAMPP Control Panel...
+start "" "%XAMPP_PATH%\xampp-control.exe" >nul
 
 echo.
 echo ==================================================
-echo   Process completed successfully!
-echo   Please check XAMPP and start MySQL.
+echo   ✅ MySQL Auto-Fix Completed Successfully!
+echo   Next Steps:
+echo     1. In Control Panel click [Start] for Apache
+echo     2. Then click [Start] for MySQL
+echo --------------------------------------------------
+echo   MySQL Access Credentials:
+echo     🧑 Username: %MYSQL_USER%
+echo     🔑 Password: %MYSQL_PASS%
 echo ==================================================
+echo.
 pause
+endlocal
